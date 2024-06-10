@@ -106,10 +106,13 @@ public class PP2V15 {
 	        }
 	    }
 
-	    private void sendEmailAlert(String messageBody) {
-	        // Recipient's email ID needs to be mentioned.
-	     //   String[] to = {"karthik6595@gmail.com","annotation.divya@gmail.com", "gayathrigayu0918@gmail.com","nathan.i@htic.iitm.ac.in","venip@htic.iitm.ac.in", "lavanyabotcha@htic.iitm.ac.in"}; 
-	        String[] to = {"annotation.divya@gmail.com"}; 
+	    priv    // Recipient's email ID needs to be mentioned.
+	    //  String[] to = {"annotation.divya@gmail.com"}; 
+	    	String[] to = {"karthik6595@gmail.com"};
+	    	 // String[] cc = {"divya.d@htic.ittm.ac.in"};
+	       String[] cc = {"chinna02jobroi@gmail.com", "meerannagoor84@gmail.com", "sindhu.r@htic.iitm.ac.in", "nathan.i@htic.iitm.ac.in", "divya.d@htic.ittm.ac.in", "lavanyabotcha@htic.iitm.ac.in", "venip@htic.iitm.ac.in"};
+	        String[] bcc = {};  	
+	      //  String[] to = {"karthik6595@gmail.com","annotation.divya@gmail.com", "gayathrigayu0918@gmail.com","nathan.i@htic.iitm.ac.in","venip@htic.iitm.ac.in", "lavanyabotcha@htic.iitm.ac.in"}; 
 	        // Sender's email ID needs to be mentioned
 	        String from = "gayathri@htic.iitm.ac.in";
 	        // Assuming you are sending email through Gmail's SMTP
@@ -138,11 +141,17 @@ public class PP2V15 {
 	            for (String recipient : to) {
 	                message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
 	            }
+	            for (String ccRecipient : cc) {
+	                message.addRecipient(Message.RecipientType.CC, new InternetAddress(ccRecipient));
+	            }
+	            for (String bccRecipient : bcc) {
+	                message.addRecipient(Message.RecipientType.BCC, new InternetAddress(bccRecipient));
+	            }
 	            // Set Subject: header field
-	            message.setSubject("PP2V15.humanbrain.in - STORAGE ALERT ⚠️ ");
+	            message.setSubject("PP3V5.humanbrain.in - STORAGE ALERT ⚠️ ");
 	            // Set the actual message
 	            message.setText("This email has been automatically generated:\n" + messageBody + "Attention and Action Required 🚨\n" + messageBody
-	                    + "\nPP2V15**nvmeShare** storage utilization has crossed 70% 🚫:\n" + messageBody);
+	                    + "\nPP3V5 **scanner_3_nvmeShare** storage utilization has crossed 70% 🚫:\n" + messageBody);
 	            System.out.println("sending...");
 	            // Send message
 	            Transport.send(message);
