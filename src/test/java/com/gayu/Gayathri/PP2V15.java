@@ -106,7 +106,8 @@ public class PP2V15 {
 	        }
 	    }
 
-	    priv    // Recipient's email ID needs to be mentioned.
+	    private void sendEmailAlert(String messageBody) {
+	        // Recipient's email ID needs to be mentioned.
 	    //  String[] to = {"annotation.divya@gmail.com"}; 
 	    	String[] to = {"karthik6595@gmail.com"};
 	    	 // String[] cc = {"divya.d@htic.ittm.ac.in"};
@@ -148,10 +149,10 @@ public class PP2V15 {
 	                message.addRecipient(Message.RecipientType.BCC, new InternetAddress(bccRecipient));
 	            }
 	            // Set Subject: header field
-	            message.setSubject("PP3V5.humanbrain.in - STORAGE ALERT ⚠️ ");
+	            message.setSubject("PP2V15.humanbrain.in - STORAGE ALERT ⚠️ ");
 	            // Set the actual message
 	            message.setText("This email has been automatically generated:\n" + messageBody + "Attention and Action Required 🚨\n" + messageBody
-	                    + "\nPP3V5 **scanner_3_nvmeShare** storage utilization has crossed 70% 🚫:\n" + messageBody);
+	                    + "\nPP2V15 **scanner_3_nvmeShare** storage utilization has crossed 70% 🚫:\n" + messageBody);
 	            System.out.println("sending...");
 	            // Send message
 	            Transport.send(message);
